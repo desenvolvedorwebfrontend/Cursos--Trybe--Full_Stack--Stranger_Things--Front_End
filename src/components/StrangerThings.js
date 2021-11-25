@@ -1,19 +1,25 @@
 import React from 'react';
 import CharactersService from '../services/charactersAPI';
 import Table from './Table';
+const {
+  REACT_APP_HAWKINS_URL: strangerThingsUrl,
+  REACT_APP_HAWKINS_TIMEOUT: strangerThingsTimeout,
+  REACT_APP_UPSIDEDOWN_URL: upsideDownUrl,
+  REACT_APP_UPSIDEDOWN_TIMEOUT: upsideDownTimeout,
+  } = process.env; 
 
 const getRealityClass = (hereIsTheUpsideDownWorld) => (
   hereIsTheUpsideDownWorld ? 'upside-down' : 'stranger-things'
 );
 
 const strangerThingsConfig = {
-  url: 'http://localhost:3002',
-  timeout: 30000,
+  url: strangerThingsUrl,
+  timeout: strangerThingsTimeout,
 };
 
 const upsideDownConfig = {
-  url: 'http://localhost:3003',
-  timeout: 30000,
+  url: upsideDownUrl,
+  timeout: upsideDownTimeout,
 };
 
 const charactersService = new CharactersService(strangerThingsConfig);
